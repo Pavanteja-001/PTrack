@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PTrack - Amazon Review Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>PTrack - Amazon Review Analyzer</h1>
+        <button id="darkModeToggle">Theme Mode</button>
+
+        <!-- Form for URL Input -->
+        <form id="urlForm">
+            <div id="loading" class="spinner" style="display: none"></div>
+            <input type="text" id="url" placeholder="Enter Amazon product URL" required />
+            <button type="submit">Analyze</button>
+        </form>
+
+        <!-- Results Container (Hidden Until Data is Loaded) -->
+        <div class="results-container" id="results" style="display: none">
+            
+            <!-- Flexbox Container for Left (Product Info) and Right (Sentiment & Reviews) -->
+            <div class="content-container">
+                
+                <!-- Left Side (Product Info) -->
+                <div class="left-side">
+                    <img id="product_image" src="" alt="Product Image" />
+                    <h2 class="product-name" id="product_name">Product Name</h2>
+                    <p class="rating"><b>Rating:</b> <span id="rating">-</span></p>
+                    <p class="price"><b>Price:</b> <span id="price">-</span></p>
+                    <div class="stats">
+                        <p><b>Total Reviews:</b> <span id="total_reviews">-</span></p>
+                        <p><b>Positive Reviews:</b> <span id="positive_percentage">-</span>%</p>
+                        <p><b>Negative Reviews:</b> <span id="negative_percentage">-</span>%</p>
+                    </div>
+                </div>
+
+                <!-- Right Side (Sentiment Analysis & Reviews) -->
+                <div class="right-side">
+                    <h3 class="sentiment-title">Sentiment Analysis:</h3>
+                    <div class="sentiment-container">
+                        <img id="sentiment_graph" class="sentiment-graph" src="" alt="Sentiment Graph" />
+                    </div>
+
+                    <div class="best-review">
+                        <strong>Best Review:</strong>
+                        <p id="best_review">-</p>
+                    </div>
+
+                    <div class="worst-review">
+                        <strong>Worst Review:</strong>
+                        <p id="worst_review">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic Analysis Section -->
+            <div class="topic-container">
+                <h3>Review Topic Analysis:</h3>
+                <img id="category_graph" class="category-graph" src="" alt="Category Graph" />
+            </div>
+
+            <!-- Word Cloud Section -->
+            <div class="wordcloud-container">
+                <h3>Word Cloud:</h3>
+                <img id="wordcloud" src="" alt="Word Cloud" />
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
