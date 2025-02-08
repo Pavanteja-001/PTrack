@@ -1,0 +1,11 @@
+flask
+gunicorn
+requests
+beautifulsoup4
+matplotlib
+spacy
+selenium
+webdriver-manager
+textblob
+flask-cors
+wordcloud
